@@ -17,7 +17,7 @@ public class StepDefinition {
         System.setProperty("webdriver.chrome.driver", "C:\\HanhTester\\Setup\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("http://localhost:3000/");
+        driver.get("http://13.54.229.100/");
         Thread.sleep(2000);
     }
 
@@ -35,7 +35,7 @@ public class StepDefinition {
 
     @And("^Clicks on Login button$")
     public void clicks_on_login_button() throws Throwable {
-        driver.findElement(By.xpath("//button[contains(text(),'Login')]")).click();
+        driver.findElement(By.xpath("//button[contains(text(),'Đăng nhập')]")).click();
         Thread.sleep(2000);
     }
 
@@ -67,7 +67,7 @@ public class StepDefinition {
         System.setProperty("webdriver.chrome.driver", "C:\\HanhTester\\Setup\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("http://13.239.140.174/register");
+        driver.get("http://13.54.229.100/register");
         Thread.sleep(2000);
     }
 
@@ -77,7 +77,7 @@ public class StepDefinition {
         Thread.sleep(2000);
     }
 
-    @When("^User do not enter details into any fields$")
+    @And("^User do not enter details into any fields$")
     public void user_do_not_enter_details_into_any_fields() throws Throwable {
         Thread.sleep(2000);
     }
@@ -105,7 +105,7 @@ public class StepDefinition {
         try {
             Thread.sleep(2000);
             Select dropdown = new Select (driver.findElement(By.id("userType")));
-            dropdown.selectByValue("makeup");
+            dropdown.selectByValue("photographer");
         }catch (Exception e){
             System.out.println(e);
         }
@@ -118,7 +118,7 @@ public class StepDefinition {
     }
 
 //    End Register
-    //    Post
+//    Post
 
     @When("^Clicks on Profile page$")
     public void clicks_on_profile_page() throws Throwable {
@@ -127,21 +127,20 @@ public class StepDefinition {
     }
     @And("^User enter the valid content into content box$")
     public void user_enter_the_valid_content_into_content_box() throws Throwable {
-        driver.findElement(By.xpath("//textarea[@id='description-input']")).sendKeys("Ngoại cảnh với nhà thờ con Gà");
+        driver.findElement(By.xpath("//textarea[@id='description-input']")).sendKeys("Chụp ảnh ngoài cảnh");
         Thread.sleep(2000);
     }
 
     @And("^User click to choose the image$")
     public void user_click_to_choose_the_image() throws Throwable {
-        driver.findElement(By.id("chooseImg")).sendKeys("D:\\Mỹ Hanh\\Images\\Cuoidi_Cuoidi\\Post.jpg");
+        driver.findElement(By.id("chooseImg")).sendKeys("D:\\Mỹ Hanh\\Images\\ngoaiCanh\\4.jpg");
         Thread.sleep(2000);
     }
 
-    @And("^Click on the Create button$")
-    public void click_on_the_create_button() throws Throwable {
-        driver.findElement(By.xpath("//button[contains(text(),'Create')]")).click();
-        Thread.sleep(2000);
+    @And("^Click on the Post button$")
+    public void click_on_the_Post_button() throws Throwable {
+        driver.findElement(By.xpath("//button[contains(text(),'Xong')]")).click();
+        Thread.sleep(2*5000);
     }
-
 //    End Post
 }
